@@ -30,6 +30,12 @@ export const LiveChatLoaderProvider = ({ provider, children, ...props }) => {
     }
   }, [value.providerKey]);
 
+  useEffect(() => {
+    if(window.Beacon !== undefined && props.hasDocs) {
+      chatProvider.suggest();
+    }
+  });
+
   return (
     <LiveChatLoaderContext.Provider value={value}>
       <link href={chatProvider.domain} rel="preconnect" crossOrigin="" />

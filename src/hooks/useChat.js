@@ -83,7 +83,7 @@ const useChat = ({ loadWhenIdle } = {}) => {
 
     if (!scriptLoaded || state === STATES.INITIAL) {
       scriptLoaded = true
-      chatProvider.load({ providerKey, state, setState, ...options })
+      chatProvider.load({ providerKey, setState })
     }
 
     if (open) {

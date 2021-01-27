@@ -27,18 +27,22 @@ const loadScript = () => {
 
 const load = ({ providerKey, setState }) => {
   loadScript()
-  window.Beacon('init', providerKey)
+  if(window.Beacon !== undefined) {
+    window.Beacon('init', providerKey)
+  }
   setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
 const open = () => window.Beacon('open')
 const close = () => window.Beacon('close')
 const destroy = () => window.Beacon('destroy')
+const suggest = () => window.Beacon('suggest')
 
 export default {
   domain,
   destroy,
   load,
   open,
-  close
+  close,
+  suggest
 }
