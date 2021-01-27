@@ -27,9 +27,7 @@ const loadScript = () => {
 
 const load = ({ providerKey, setState }) => {
   loadScript()
-  if(window.Beacon !== undefined) {
-    window.Beacon('init', providerKey)
-  }
+  window.Beacon('init', providerKey)
   setTimeout(() => setState(STATES.COMPLETE), 2000)
 }
 
